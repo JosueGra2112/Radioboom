@@ -64,3 +64,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/img01.png
+    - assets/images/img02.png
+    - assets/images/img03.png
+    - assets/images/logo.webp

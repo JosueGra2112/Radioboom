@@ -18,10 +18,7 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.network(
-              'https://play-lh.googleusercontent.com/dG1DQSG5pxULCjQ8_7Ep3cyUSO0OmyF3fRuum2UxdNpC5FVeCwev3iTqtaHc2DnmUA',
-              width: 200,
-            ),
+            Image.asset('assets/images/logo.webp', width: 200,),
             SizedBox(height: 20),
             CircularProgressIndicator(
               color: Colors.white,

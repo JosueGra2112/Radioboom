@@ -10,19 +10,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   int currentIndex = 0;
   final PageController _pageController = PageController();
 
-  final List<Map<String, String>> onboardingData = [
+  final List<Map<String, dynamic>> onboardingData = [
     {
-      'image': 'https://i.pinimg.com/236x/16/47/2c/16472c044ffd01b6e033e60d147e3b6a.jpg',
+      'image': 'assets/images/img01.png',
+      'isNetworkImage': false, // Indicates it's a local asset
       'title': 'BOOM FM',
       'subtitle': '¡Siempre firme!',
     },
     {
-      'image': 'https://w0.peakpx.com/wallpaper/188/933/HD-wallpaper-maluma-maluma-baby-thumbnail.jpg',
+      'image': 'assets/images/img02.png',
+      'isNetworkImage': false, // Indicates it's a network image
       'title': '¡SOLO ÉXITOS!',
       'subtitle': 'Tenemos los mejores artistas y eventos.',
     },
     {
-      'image': 'https://wallpapers.com/images/hd/grupo-firme-xbr56vj5sem76c35.jpg',
+      'image': 'assets/images/img03.png',
+      'isNetworkImage': false, // Indicates it's a network image
       'title': '¡MÚSICA CONTINÚA!',
       'subtitle': 'Música 24/7 para todos los gustos y edades.',
     },
@@ -43,7 +46,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             },
             itemBuilder: (context, index) {
               return OnboardingContent(
-                image: onboardingData[index]['image']!,
+                image: onboardingData[index]['image'],
+                isNetworkImage: onboardingData[index]['isNetworkImage'],
                 title: onboardingData[index]['title']!,
                 subtitle: onboardingData[index]['subtitle']!,
               );
@@ -122,9 +126,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
 class OnboardingContent extends StatelessWidget {
   final String image, title, subtitle;
+  final bool isNetworkImage;
 
   OnboardingContent({
     required this.image,
+    required this.isNetworkImage,
     required this.title,
     required this.subtitle,
   });
@@ -136,7 +142,9 @@ class OnboardingContent extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(image),
+              image: isNetworkImage
+                  ? NetworkImage(image) as ImageProvider<Object>
+                  : AssetImage(image),
               fit: BoxFit.cover,
               colorFilter: ColorFilter.mode(
                 Colors.purple.withOpacity(0.6),

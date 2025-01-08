@@ -3,15 +3,14 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:blur/blur.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-class StationDetailScreen extends StatefulWidget {
+class StationsDetailScreenNew extends StatefulWidget {
   final Map<String, dynamic> station;
   final bool isPlaying;
   final bool isFavorite;
   final VoidCallback onPlayPause;
   final VoidCallback onToggleFavorite;
 
-  StationDetailScreen({
+  StationsDetailScreenNew({
     required this.station,
     required this.isPlaying,
     required this.isFavorite,
@@ -23,7 +22,7 @@ class StationDetailScreen extends StatefulWidget {
   _StationDetailScreenState createState() => _StationDetailScreenState();
 }
 
-class _StationDetailScreenState extends State<StationDetailScreen> {
+class _StationDetailScreenState extends State<StationsDetailScreenNew> {
   late bool _isPlaying;
   late bool _isFavorite;
 

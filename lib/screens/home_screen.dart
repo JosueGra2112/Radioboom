@@ -6,12 +6,8 @@ import 'StationDetailScreen.dart';
 import 'all_stations_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'station_detail_with_navigation_screen.dart';
-
 import 'news_screen.dart';
 import 'favorites_screen.dart';
-
-import 'package:http/http.dart' as http;
-
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -20,7 +16,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Map<String, dynamic>> stations = [];
-
   List ads = [];
   List favoritesList = [];
   List broadcasters = [];
@@ -31,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late PageController _pageController;
   late PageController _bannerPageController;
   int _currentBannerIndex = 0;
+
 
 
   @override
@@ -302,10 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.purple,
         title: Row(
           children: [
-            Image.network(
-              'https://play-lh.googleusercontent.com/dG1DQSG5pxULCjQ8_7Ep3cyUSO0OmyF3fRuum2UxdNpC5FVeCwev3iTqtaHc2DnmUA',
-              height: 40,
-            ),
+            Image.asset('assets/images/logo.webp', height: 40),
             SizedBox(width: 10),
             Text(
               "Boom FM",
@@ -350,8 +343,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 itemBuilder: (context, index) {
                   final ad = ads[index];
-                  final imageUrl =
-                      'https://radio.freepi.io${ad['media'] ?? '/placeholder.png'}';
+                  final imageUrl = 'https://radio.freepi.io${ad['media'] ?? '/placeholder.png'}';
                   final actionUrl = ad['accion_url'] ?? '';
 
                   return GestureDetector(
