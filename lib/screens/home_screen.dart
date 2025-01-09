@@ -286,11 +286,10 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
-        ],
+        ]
       ),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -662,7 +661,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       onToggleFavorite: (station) {
                         toggleFavorite(station);
-                      },
+                      }, onTogglePlayPause: () {  },
                     ),
                   ),
                 );
@@ -684,7 +683,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       onToggleFavorite: (station) {
                         toggleFavorite(station);
-                      },
+                      }, onTogglePlayPause: () {  },
                     ),
                   ),
                 );

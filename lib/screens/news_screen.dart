@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'favorites_screen.dart';
 
 class NewsScreen extends StatelessWidget {
@@ -8,6 +7,7 @@ class NewsScreen extends StatelessWidget {
   final bool isPlaying;
   final Function(Map<String, dynamic>) onPlayStation;
   final Function(Map<String, dynamic>) onToggleFavorite;
+  final VoidCallback onTogglePlayPause;
 
   const NewsScreen({
     Key? key,
@@ -16,6 +16,7 @@ class NewsScreen extends StatelessWidget {
     required this.isPlaying,
     required this.onPlayStation,
     required this.onToggleFavorite,
+    required this.onTogglePlayPause,
   }) : super(key: key);
 
   @override
@@ -48,6 +49,7 @@ class NewsScreen extends StatelessWidget {
                   currentStation: currentStation,
                   onPlayStation: onPlayStation,
                   onToggleFavorite: onToggleFavorite,
+                  onTogglePlayPause: onTogglePlayPause,
                 ),
               ),
             );
